@@ -1,0 +1,27 @@
+{
+  "name": "shopping-basket",
+  "version": "1.0.0",
+  "description": "Shopping Basket App",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack-dev-server --hot"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/prasim/shopping-basket.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/prasim/shopping-basket/issues"
+  },
+  "homepage": "https://github.com/prasim/shopping-basket#readme",
+  "dependencies": {
+    "react": "^15.1.0",
+    "react-dom": "^15.1.0",
+    "react-redux": "^4.4.5",
+    "redux": "^3.5.2",
+    "webpack": "^1.13.1",
+    "webpack-dev-server": "^1.14.1"
+  }
+}
