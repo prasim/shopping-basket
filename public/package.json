@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/prasim/shopping-basket#readme",
   "dependencies": {
+    "d3": "^4.1.1",
     "react": "^15.1.0",
     "react-dom": "^15.1.0",
     "react-redux": "^4.4.5",
