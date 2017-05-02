@@ -16,7 +16,11 @@
     "url": "https://github.com/prasim/shopping-basket/issues"
   },
   "homepage": "https://github.com/prasim/shopping-basket#readme",
-  "dependencies": {
+  "devDependencies": {
+    "babel-core": "^6.24.1",
+    "babel-loader": "^7.0.0",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-es2015": "^6.24.1",
     "d3": "^4.1.1",
     "react": "^15.1.0",
     "react-dom": "^15.1.0",
