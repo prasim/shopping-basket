@@ -4,3 +4,4 @@ Shopping Basket App
 2. Do npm install
 3. Type Webpack 
 4. now run index.html file in web server
+5. New changes
