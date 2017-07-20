@@ -12,18 +12,55 @@ import MenuItem from 'material-ui/MenuItem';
 import DropDownMenu from 'material-ui/DropDownMenu';
 import {Toolbar, ToolbarGroup, ToolbarSeparator, ToolbarTitle} from 'material-ui/Toolbar';
 
-const HeaderSection = () => (
-    <Card>
-      <CardTitle title="Jain Herbs" subtitle="Nature is the way for healthy living" />
-      <CardActions>
-        <Link to='/'><FlatButton label="Home"/></Link>
-        <Link to='/company'><FlatButton label="Company Profile"/></Link>
-        <Link to='/products'><FlatButton label="Products"/></Link>
-        <Link to='/contact'><FlatButton label="Contact Us"/></Link>
-        <Link to='/enquiry'><FlatButton label="Enquiry"/></Link>
-      </CardActions>
-    </Card>
-);
+class HeaderSection extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      'images': '',
+      'intervalId' : '',
+      'image': '',
+      'imageNo': '0'
+    }
+  }
+  importAll(r) {
+    return r.keys().map(r);
+  }
+  componentDidMount() {
+    var intervalId = setInterval(
+      this.timer.bind(this), 1000
+    );
+    var images = this.importAll(require.context('./images/', false, /\.jpg$/));
+    this.setState({images:images})
+    this.setState({intervalId: intervalId})
+  }
+  componentWillUnmount() {
+    clearInterval(this.state.intervalId);
+  }
+  timer() {
+    this.setState({image:this.state.images[this.state.imageNo]})
+    this.state.imageNo++;
+    if(this.state.imageNo === this.state.images.length) {
+      this.state.imageNo = 0;
+    }
+  }
+  render() {
+    return (
+      <Card>
+        <CardTitle title="Jain Herbs" subtitle="Nature is the way for healthy living" />
+        <CardMedia  overlay={<CardTitle title="Overlay title" subtitle="Overlay subtitle" />}>
+          <img src={this.state.image} alt="" />
+        </CardMedia>
+        <CardActions>
+          <Link to='/'><FlatButton label="Home"/></Link>
+          <Link to='/company'><FlatButton label="Company Profile"/></Link>
+          <Link to='/products'><FlatButton label="Products"/></Link>
+          <Link to='/contact'><FlatButton label="Contact Us"/></Link>
+          <Link to='/enquiry'><FlatButton label="Enquiry"/></Link>
+        </CardActions>
+      </Card>
+    )
+  }
+}
 const FooterSection = () => (
     <div>
       <Toolbar>
